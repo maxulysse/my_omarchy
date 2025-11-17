@@ -57,7 +57,25 @@ sudo apt install -y build-essential git vim tmux
 
 ### 3. Install Dot Files
 
-Copy the provided dot files to your home directory:
+#### Option A: Using the Installation Script (Recommended)
+
+The easiest way to install all dot files with automatic backup:
+
+```bash
+# Clone this repository
+git clone https://github.com/maxulysse/my_omarchy.git
+cd my_omarchy
+
+# Run the installation script
+./install-dotfiles.sh
+
+# Apply bash configuration
+source ~/.bashrc
+```
+
+#### Option B: Manual Installation
+
+Copy the provided dot files to your home directory manually:
 
 ```bash
 # Clone this repository

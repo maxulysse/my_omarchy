@@ -1,0 +1,30 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor backup files
+*~
+*.swp
+*.swo
+*.bak
+
+# Temporary files
+*.tmp
+/tmp/
+
+# Local configuration files (machine-specific)
+.env
+.env.local
+*.local
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Backup directories
+backup/
+
+# Log files
+*.log
