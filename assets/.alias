@@ -1,0 +1,5 @@
+alias docker_rm="docker rm \$(docker ps -a -f status=exited -q)"
+alias docker_rmi="docker rmi \$(docker images -a -q)"
+alias docker_clean="docker_rmi -f || true ; docker_rm -f || true"
+alias nf_clean="rm -rf results/ .nextflow* work/"
+alias gh_tb="git commit --allow-empty -m 'Trigger Build'"

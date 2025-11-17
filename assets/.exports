@@ -1,0 +1,17 @@
+# GIT
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
+# PATHS
+export CONDA_PATH=${HOME}/miniconda3/bin
+export WORKSPACE=${HOME}/workspace
+export PATH=${HOME}/bin:${HOME}/.local/bin:${CONDA_PATH}:${PATH}
+
+# NEXTFLOW
+export NXF_HOME=${HOME}/.nextflow
+export NXF_SINGULARITY_CACHEDIR=${WORKSPACE}/cache
+export NXF_SINGULARITY_LIBRARYDIR=${WORKSPACE}/cache
+
+# NF_TEST
+export NFT_DIFF="pdiff"
+export NFT_DIFF_ARGS="--line-numbers --width 120 --expand-tabs=2"
+export NFT_WORKDIR=~

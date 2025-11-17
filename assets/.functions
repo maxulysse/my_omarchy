@@ -1,0 +1,28 @@
+# Pull an image from a registry/org and push to another registry/org
+# Default to pushing to quay.io/nf-core
+docker_pull_tag_push() {
+    target=${2:-quay.io/nf-core}
+
+    echo "Will pull: $1"
+    echo "Will push to: $target"
+
+    docker manifest inspect $1 > /dev/null 2>&1 && docker pull $1 ; docker tag $1 ${target}/"${1##*/}" ;docker push ${target}/"${1##*/}" || echo "no such image :$1"
+
+    echo "Removing local images"
+    docker rm $1 || echo "no such image :$1"
+    docker rm ${target}/"${1##*/}" || echo "no such image ${target}/\"${1##*/}\""
+}
+
+# Sync a specific branch
+# Default to dev
+gh_sync() {
+    branch=${1:-dev}
+    [ -d .git ] && git rev-parse --git-dir > /dev/null 2>&1 && gh repo sync $(git remote -v | grep origin | cut -d':' -f 2 | cut -d '.' -f 1 | sort -u) --branch $branch
+}
+
+# Update Nextflow to specified version
+# Default to latest stable
+nf_update() {
+    version=${1:-latest}
+    export NXF_VER=$1 ; nextflow self-update
+}
